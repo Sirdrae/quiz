@@ -23,7 +23,7 @@ public class Quiz      //Main Class contaning the Frame, panels, buttons and cor
       int current=0,count=0;                 // initializing two counter varibles 
       
      ButtonGroup bg= new ButtonGroup();     // this component let the user know which button is active or inactive and the instance variable let only one button can be selected at a given time
-      MenuItem I1,I2,I3;                   //menu labels at the top of the window pane
+      MenuItem I1,I2,I3,I4;                   //menu labels at the top of the window pane
    
       
       
@@ -450,6 +450,19 @@ public class Quiz      //Main Class contaning the Frame, panels, buttons and cor
             }
         });  
         
+         I4= new MenuItem(" About ");
+     I4.addActionListener( new ActionListener()
+     {
+         public void actionPerformed(ActionEvent c) 
+         {
+             try {
+                 ReadMe S = new ReadMe("Quiz Competition Read Me File.txt");} // Please insert the name of your readme file here if it has a different name
+                 catch (Exception e) {
+                     System.out.println(e);
+                    }
+           
+            }
+        });  
        
      
     
@@ -459,7 +472,10 @@ public class Quiz      //Main Class contaning the Frame, panels, buttons and cor
      menu.add(I2);
      menu.addSeparator();
      menu.add(I3);
+     menu.addSeparator();
+     menu.add(I4);
      menuB.add(menu);
+      
      
      frame.setMenuBar(menuB);
      
@@ -721,6 +737,19 @@ public class displayQuiz
   
   
   
-  
+  /**
+  *
+  *
+  *Read Me File class
+  *
+  */
+  import java.nio.file.*;
+public class ReadMe
+{
+    ReadMe(String fileName) throws Exception{
+        String txt=new String (Files.readAllBytes(Paths.get(fileName)));
+        System.out.println(txt);
+    }
+}
 
 
